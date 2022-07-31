@@ -20,8 +20,7 @@ const routes = require('./router/indexRoute');
 // port number
 const port = process.env.PORT || 5000;
 //database url
-const dbUrl = config.dbUrl;
-//connecting database
+const dbUrl = process.env.ME_CONFIG_MONGODB_URL || config.dbUrl;
 mongoose.connect(dbUrl, { useUnifiedTopology: true, useNewUrlParser: true });
 //upon connection
 mongoose.connection.on('connected', () => {
